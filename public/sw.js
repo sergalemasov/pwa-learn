@@ -1,4 +1,4 @@
-const CACHE_STATIC_NAME = 'static-v4';
+const CACHE_STATIC_NAME = 'static-v10';
 const CACHE_DYNAMIC_NAME = 'dynamic';
 
 self.addEventListener('install', event => {
@@ -10,6 +10,7 @@ self.addEventListener('install', event => {
                 cache.addAll([
                     '/',
                     '/index.html',
+                    '/offline.html',
                     '/src/js/app.js',
                     '/src/js/feed.js',
                     '/src/js/material.min.js',
@@ -31,7 +32,7 @@ self.addEventListener('activate', event => {
         caches.keys()
             .then(keyList => {
                 return Promise.all(keyList.map(key => {
-                    if ([CACHE_STATIC_NAME, CACHE_DYNAMIC_NAME].includes(key)) {
+                    if (![CACHE_STATIC_NAME, CACHE_DYNAMIC_NAME].includes(key)) {
                         console.log('[Service Worker] Removing old cache.', key);
 
                         return caches.delete(key);
@@ -49,7 +50,7 @@ self.addEventListener('fetch', event => {
             .then(cachedResponse => (
                 cachedResponse ||
                 fetch(event.request)
-                    .then(response => caches.open(CACHE_DYNAMIC_NAME  )
+                    .then(response => caches.open(CACHE_DYNAMIC_NAME)
                         .then(cache => {
                             cache.put(event.request, response.clone());
 
@@ -57,6 +58,8 @@ self.addEventListener('fetch', event => {
                         })
                     )
             ))
-            .catch(() => {})
+            .catch(() => caches.open(CACHE_STATIC_NAME)
+                .then(cache => cache.match('/offline.html'))
+            )
     );
 });
