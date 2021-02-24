@@ -1,5 +1,0 @@
-[{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target" : { "namespace": "android_app", "package_name": "com.herokuapp.pwa_learn.twa",
-                   "sha256_cert_fingerprints": ["12:83:A6:30:CC:7D:DB:0A:FE:EE:BE:8D:EF:4C:61:BF:71:A2:0A:32:C2:62:0E:71:F0:4B:C6:9A:BF:0A:FA:FA"] }
-    }]
