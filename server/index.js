@@ -20,6 +20,10 @@ app.get('/', (_req, res) => {
     res.sendFile(join(DIST_FOLDER, 'index.html'));
 });
 
+app.get('/help', (_req, res) => {
+    res.sendFile(join(DIST_FOLDER, 'help', 'index.html'));
+});
+
 app.listen(PORT, () => {
     console.log(`listening on http://localhost:${PORT}!`);
 });
