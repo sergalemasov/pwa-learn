@@ -21,6 +21,12 @@ let app = {};
         });
     }
 
+    window.addEventListener('load', function () {
+        const screenSizeDiv = document.getElementById('screen-size');
+
+        screenSizeDiv.innerHTML = `Inner height: ${window.innerHeight}, Screen height: ${window.screen.height}`;
+    });
+
     registerSw();
     preventInstallPrompt();
 })(app);

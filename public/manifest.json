@@ -38,8 +38,8 @@
             "sizes": "512x512"
         }
     ],
-    "start_url": "/index.html",
-    "scope": ".",
+    "start_url": "/feed",
+    "scope": "/",
     "display": "fullscreen",
     "orientation": "portrait-primary",
     "background_color": "#fff",

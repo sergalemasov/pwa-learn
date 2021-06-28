@@ -53,6 +53,10 @@ self.addEventListener('fetch', event => {
                 fetch(event.request)
                     .then(response => caches.open(CACHE_DYNAMIC_NAME)
                         .then(cache => {
+                            if (request.method.toLowerCase() === 'post') {
+                                return;
+                            }
+
                             cache.put(event.request, response.clone());
 
                             return response;
