@@ -11,7 +11,6 @@ self.addEventListener('install', event => {
                     '/feed',
                     '/help',
                     '/rabota',
-                    '/index.html',
                     '/offline.html',
                     '/src/js/app.js',
                     '/src/js/feed.js',
