@@ -10,6 +10,8 @@ self.addEventListener('install', event => {
                 cache.addAll([
                     '/',
                     '/rabota',
+                    '/help',
+                    '/help/index.html',
                     '/index.html',
                     '/offline.html',
                     '/src/js/app.js',
