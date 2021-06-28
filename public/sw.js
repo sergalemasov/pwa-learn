@@ -8,7 +8,8 @@ self.addEventListener('install', event => {
             .then(cache => {
                 console.log('[Service Worker] Precaching App Shell');
                 cache.addAll([
-                    '/',
+                    '/feed',
+                    '/help',
                     '/rabota',
                     '/index.html',
                     '/offline.html',
